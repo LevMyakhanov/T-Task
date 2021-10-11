@@ -1,0 +1,26 @@
+mixin card(catName, catColor, catAge, catPawsAmount, catPrice, isSold, classes, isDiscount, discountText)
+    .card
+        .card-up(class=classes)
+            - if (isDiscount) {
+                .discount= discountText
+            - }
+            .favorite
+        .card-down
+            .card-main
+                p.card-name= catName
+                .description
+                    p.description__name.description__text= catColor
+                    .description__wrapper-age
+                        p.description__text_bold= catAge
+                        p.description__text Возраст
+                    .description__wrapper-paws
+                        p.description__text_bold= catPawsAmount
+                        p.description__text Кол-во лап
+                p.card-name.card-name-price= catPrice
+        - if (isSold) {
+            button.purchase.purchase_black Продан
+        - }
+        - else {
+            button.purchase.purchase_blue Купить
+        - }
+                block
