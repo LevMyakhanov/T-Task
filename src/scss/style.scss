@@ -81,11 +81,11 @@ button {
     display: flex;
     margin-left: 120px;
 }
-.header__menu-item {
+.header__menu-href {
     font-family: Montserrat;
     font-size: 18px;
     line-height: 22px;
-    color: #FFFFFF;
+    color: #fff;
 }
 .header__menu-href:hover {
     color: yellow;
@@ -178,11 +178,18 @@ button {
 .cats__sorting-wrapper-price_active {
     display: block;
 }
-.cats__ascending {
+.cats__ascending_price {
     margin-bottom: 5px;
     cursor: pointer;
 }
-.cats__descending {
+.cats__descending_price {
+    cursor: pointer;
+}
+.cats__ascending_age {
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.cats__descending_age {
     cursor: pointer;
 }
 
@@ -243,6 +250,33 @@ button {
     left: 0;
 }
 .favorite::after {
+    top: 0;
+    left: -15px;
+}
+.favorite-white {
+    position: absolute;
+    top: 37px;
+    right: 32px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+.favorite-white::before,
+.favorite-white::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+}
+.favorite-white::before {
+    top: -15px;
+    left: 0;
+}
+.favorite-white::after {
     top: 0;
     left: -15px;
 }
@@ -338,9 +372,9 @@ button {
     width: 59px;
     height: 59px;
     background: #6EBBD3;
-    position: absolute;
-    right: 0;
-    top: 40px;
+    position: fixed;
+    right: 129px;
+    bottom: 40px;
 }
 .button-up::before {
     content: "";
@@ -354,6 +388,9 @@ button {
     left: 0;
     margin-left: 23px;
     margin-top: 24px;
+}
+.button_hide {
+    display: none;
 }
 
 
@@ -408,6 +445,8 @@ button {
     font-size: 14px;
     line-height: 17px;
     color: #FFFFFF;
+    border: none;
+    cursor: pointer;
 }
 .footer__label-checkbox {
     display: flex;

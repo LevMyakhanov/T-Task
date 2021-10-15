@@ -49,23 +49,90 @@ document.addEventListener('click', e => {
     }
 })
 
+
+let cardsContainer = document.querySelector('.cards-container')
 let catPricesArray = document.querySelectorAll('.card-name-price')
+let descriptionCatAge = document.querySelectorAll('.description__cat-age')
 
 
-let catPricesArrayValues = []
+function byIncreasingPrice() {
+    let sortedCatPricesArray = Array.from(catPricesArray).sort((a,b) => parseInt(a.innerHTML,10) - parseInt(b.innerHTML,10))
 
-catPricesArray.forEach(
-    function getText(currentValue) {
-        catPricesArrayValues.push(currentValue.textContent)
+    for (let index = 0; index < sortedCatPricesArray.length; index++) {
+        cardsContainer.append(sortedCatPricesArray[index].parentNode.parentNode.parentNode)
     }
-)
-
-function compareNumeric(a, b) {
-    if (a > b) return 1;
-    if (a == b) return 0;
-    if (a < b) return -1;
+    return sortedCatPricesArray
 }
 
-catPricesArrayValues.sort(compareNumeric);
+function byDecreasingPrice() {
+    let reversedSortedCatPricesArray = byIncreasingPrice().reverse()
 
-console.log(catPricesArrayValues);
+    for (let index = 0; index < reversedSortedCatPricesArray.length; index++) {
+        cardsContainer.append(reversedSortedCatPricesArray[index].parentNode.parentNode.parentNode)
+    }
+}
+
+function byIncreasingAge() {
+    let sortedCatAge = Array.from(descriptionCatAge).sort((a,b) => parseInt(a.innerHTML,10) - parseInt(b.innerHTML,10))
+
+    for (let index = 0; index < sortedCatAge.length; index++) {
+        cardsContainer.append(sortedCatAge[index].parentNode.parentNode.parentNode.parentNode.parentNode)
+    }
+    return sortedCatAge
+}
+
+function byDecreasingAge() {
+    let reversedSortedCatAge = byIncreasingAge().reverse()
+
+    for (let index = 0; index < reversedSortedCatAge.length; index++) {
+        cardsContainer.append(reversedSortedCatAge[index].parentNode.parentNode.parentNode.parentNode.parentNode)
+    }
+}
+
+let catsAscendingPrice = document.querySelector('.cats__ascending_price')
+let catsDescendingPrice = document.querySelector('.cats__descending_price')
+let catsAscendingAge = document.querySelector('.cats__ascending_age')
+let catsDescendingAge = document.querySelector('.cats__descending_age')
+
+catsAscendingPrice.addEventListener('click', byIncreasingPrice)
+catsDescendingPrice.addEventListener('click', byDecreasingPrice)
+catsAscendingAge.addEventListener('click', byIncreasingAge)
+catsDescendingAge.addEventListener('click', byDecreasingAge)
+
+
+
+let buttonUp = document.querySelector('.button-up')
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    buttonUp.style.display = "block";
+  } else {
+    buttonUp.style.display = "none";
+  }
+}
+
+let regexp = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i
+
+let mail = document.querySelector('.footer__input-mail')
+
+if(regexp.test(mail.value)) {
+    alert('Неверный адрес электронной почты')
+}
+
+let favorites = document.querySelectorAll('.favorite')
+
+
+Array.from(favorites).forEach(function(item) {
+    item.addEventListener('click', function(){heartChangeColor(item)})
+})
+
+function heartChangeColor(item) {
+    item.classList.toggle('favorite-white')
+    if(item.classList.contains('favorite-white')) {
+        alert('Добавили котика в избранное')
+    } else {
+        alert('Убрали котика из избранного')
+    }
+}

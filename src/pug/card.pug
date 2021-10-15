@@ -11,7 +11,7 @@ mixin card(catName, catColor, catAge, catPawsAmount, catPrice, isSold, classes, 
                 .description
                     p.description__name.description__text= catColor
                     .description__wrapper-age
-                        p.description__text_bold= catAge
+                        p.description__text_bold.description__cat-age= catAge
                         p.description__text Возраст
                     .description__wrapper-paws
                         p.description__text_bold= catPawsAmount

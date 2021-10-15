@@ -12,6 +12,7 @@ html(lang="ru")
         link(rel='stylesheet' href='style.css')
         title T-Task
     body.global-container
+        <p><a name="begining"></a></p>
         header.header
             .container
                 <p><a name="main"></a></p>
@@ -42,16 +43,16 @@ html(lang="ru")
                     p.cats__sorting-text Сортировать по:
                     .cats__price.cats__sorting-item-text Цене
                         .cats__sorting-wrapper-price
-                            p.cats__ascending По возрастанию
-                            p.cats__descending По убыванию
+                            p.cats__ascending_price По возрастанию
+                            p.cats__descending_price По убыванию
                     .cats__age.cats__sorting-item-text Возрасту
                         .cats__sorting-wrapper-age
-                            p.cats__ascending По возрастанию
-                            p.cats__descending По убыванию
+                            p.cats__ascending_age По возрастанию
+                            p.cats__descending_age По убыванию
                 .cards-container
                     +card('Кот полосатый', 'Коричневый окрас', '2 мес.', '4', '30 000 руб.', false, 'cat1', true, '-40%')
-                    +card('Кот полосатый', 'Коричневый окрас', '2 мес.', '4', '40 000 руб.', true, 'cat2', false)
-                    +card('Кот полосатый', 'Коричневый окрас', '2 мес.', '4', '20 000 руб.', false, 'cat3', false)
+                    +card('Кот полосатый', 'Коричневый окрас', '3 мес.', '4', '40 000 руб.', true, 'cat2', false)
+                    +card('Кот полосатый', 'Коричневый окрас', '1 мес.', '4', '20 000 руб.', false, 'cat3', false)
                     +card('Кот полосатый', 'Коричневый окрас', '2 мес.', '4', '25 000 руб.', false, 'cat1', false)
                     +card('Кот полосатый', 'Коричневый окрас', '2 мес.', '4', '30 000 руб.', false, 'cat3', true, '-40%')
                     +card('Кот полосатый', 'Коричневый окрас', '2 мес.', '4', '10 000 руб.', true, 'cat2', false)
@@ -81,17 +82,17 @@ html(lang="ru")
                     +card('Кот полосатый', 'Коричневый окрас', '2 мес.', '4', '10 000 руб.', true, 'cat2', false)
                 .buttons-wrapper
                     button.show-more Показать еще 20
-                    button.button-up
+                    a(href="#begining").button-up
         .container-footer
             <p><a name="news"></a></p>
             footer.footer
                 .footer__text
                     p.footer__header Успей купить!
                     p.footer__discount Подпишись и успей словить все акции
-                .footer__mail-subscribe
+                form(action="https://echo.htmlacademy.ru/", method="post").footer__mail-subscribe
                     .footer__input-button
                         input.footer__input-mail(type="email" name="email" placeholder="Email")
-                        button.footer__subscribe Подписаться
+                        input(type="submit", value="Подписаться").footer__subscribe
                     label.footer__label-checkbox
                         input.footer__input-checkbox(type="checkbox" name="подписка_на_новости" checked)
                         span.footer__fake
