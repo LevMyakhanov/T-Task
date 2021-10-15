@@ -234,6 +234,7 @@ button {
     height: 30px;
     background-color: #b5aca1;
     transform: rotate(45deg);
+    cursor: pointer;
 }
 .favorite::before,
 .favorite::after {
@@ -244,6 +245,7 @@ button {
     background-color: #b5aca1;
     border-radius: 50%;
     position: absolute;
+    cursor: pointer;
 }
 .favorite::before {
     top: -15px;
@@ -261,6 +263,7 @@ button {
     height: 30px;
     background-color: #fff;
     transform: rotate(45deg);
+    cursor: pointer;
 }
 .favorite-white::before,
 .favorite-white::after {
@@ -271,6 +274,7 @@ button {
     background-color: #fff;
     border-radius: 50%;
     position: absolute;
+    cursor: pointer;
 }
 .favorite-white::before {
     top: -15px;
